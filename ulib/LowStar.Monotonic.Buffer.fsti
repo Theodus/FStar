@@ -2042,6 +2042,7 @@ let alloc_post_mem_common (#a:Type0) (#rrel #rel:srel a)
     Map.domain (HS.get_hmap h1) `Set.equal` Map.domain (HS.get_hmap h0) /\
     (HS.get_tip h1) == (HS.get_tip h0) /\
     modifies loc_none h0 h1 /\
+    HS.modifies_just (Set.singleton (frameOf b)) (HS.get_hmap h0) (HS.get_hmap h1) /\
     as_seq h1 b == s
 
 (* Return type and post for partial allocation functions *)
